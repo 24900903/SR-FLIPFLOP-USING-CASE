@@ -45,8 +45,8 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
     input s,      // Set input
     input r,      // Reset input
     output reg q, // Output
-    output reg q_bar // Complement of output
-);
+    output reg q_bar // Complement of output);
+
     always @(posedge clk or posedge reset) begin
         if (reset) begin
             q <= 1'b0;      // Reset the flip-flop
