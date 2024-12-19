@@ -39,29 +39,31 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 4. Create nodes for inputs and outputs to generate the timing diagram.
 5. For different input combinations generate the timing diagram.
 **Program**
-input clk, // Clock signal
-input reset, // Active-high reset signal
-input s, // Set input
-input r, // Reset input
-output reg q, // Output
-output reg q_bar // Complement of output);
-always @(posedge clk or posedge reset) begin
-if (reset) begin
-q <= 1'b0; // Reset the flip-flop
-q_bar <= 1'b1; // Complement output
-end
-else begin
-case ({s, r})
-2'b00: ; // No change
-2'b01: begin // Reset
-q <= 1'b0;
-q_bar <= 1'b1;
-end
-2'b10: begin // Set
-q <= 1'b1;
-q_bar <= 1'b0;
-end
-2'b11: begin // I
+        module sr_flipflop (
+    input clk,    // Clock signal
+    input reset,  // Active-high reset signal
+    input s,      // Set input
+    input r,      // Reset input
+    output reg q, // Output
+    output reg q_bar // Complement of output
+);
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            q <= 1'b0;      // Reset the flip-flop
+            q_bar <= 1'b1;  // Complement output
+        end
+        else begin
+            case ({s, r})
+                2'b00: ;             // No change
+                2'b01: begin         // Reset
+                    q <= 1'b0;
+                    q_bar <= 1'b1;
+                end
+                2'b10: begin         // Set
+                    q <= 1'b1;
+                    q_bar <= 1'b0;
+                end
+                2'b11: begin         // I
 
 **RTL LOGIC FOR FLIPFLOPS**
 ![d6a](https://github.com/user-attachments/assets/035f8923-8838-4c60-994f-f133ff5259df)
