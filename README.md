@@ -39,7 +39,7 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 4. Create nodes for inputs and outputs to generate the timing diagram.
 5. For different input combinations generate the timing diagram.
 **Program**
-        module sr_flipflop (
+    ```    module sr_flipflop (
     input clk,    // Clock signal
     input reset,  // Active-high reset signal
     input s,      // Set input
@@ -63,7 +63,7 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
                     q <= 1'b1;
                     q_bar <= 1'b0;
                 end
-                2'b11: begin         // I
+                2'b11: begin         // I  ```
 
 **RTL LOGIC FOR FLIPFLOPS**
 ![d6a](https://github.com/user-attachments/assets/035f8923-8838-4c60-994f-f133ff5259df)
